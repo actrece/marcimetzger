@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marci Metzger Homes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,600;0,6..96,700;1,6..96,400&family=Corinthia:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Upper Right Navigation Container -->
+  <div class="nav-container">
+    <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav class="dropdown-menu" id="dropdownMenu">
+      <ul class="nav-links">
+        <li><a href="#home" class="active">HOME</a></li>
+        <li><a href="#listings">LISTINGS</a></li>
+        <li><a href="#move">LET'S MOVE</a></li>
+        <li><a href="#about">ABOUT US</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <header class="hero-scroll-container">
+    <!-- First Viewport Screen -->
+    <div class="first-screen">
+      <div class="brand-lockup">
+        <h1 class="brand-title">
+          <span class="serif-word word-marci">MARCI</span>
+          <span class="serif-word word-metzger">METZGER</span>
+        </h1>
+        <span class="script-word">Homes</span>
+      </div>
+
+      <!-- Lower Left Scroll Cue -->
+      <div class="scroll-indicator">
+        <div class="line"></div>
+        <span>SCROLL</span>
+      </div>
+    </div>
+
+    <!-- Bottom Reveal Section -->
+    <div class="bottom-reveal">
+      <div class="reveal-content">
+        <h2 class="tagline-main">MARCI METZGER - THE RIDGE REALTY GROUP</h2>
+        <p class="tagline-sub">Pahrump Realtor</p>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuToggle.classList.toggle('active');
+      dropdownMenu.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        menuToggle.classList.remove('active');
+        dropdownMenu.classList.remove('open');
+      }
+    });
+  </script>
+
+</body>
+</html>
