@@ -29,9 +29,13 @@
     </nav>
   </div>
 
-  <header class="hero-scroll-container">
-    <!-- First Viewport Screen -->
-    <div class="first-screen">
+
+  <!-- ONE SINGLE CONTINUOUS BACKGROUND CONTAINER -->
+  <main class="continuous-background-container">
+  
+    
+    <!-- PAGE 1: Sky & Brand Title -->
+    <section class="screen screen-1" id="home">
       <div class="brand-lockup">
         <h1 class="brand-title">
           <span class="serif-word word-marci">MARCI</span>
@@ -39,40 +43,407 @@
         </h1>
         <span class="script-word">Homes</span>
       </div>
-
-      <!-- Lower Left Scroll Cue -->
-      <div class="scroll-indicator">
-        <div class="line"></div>
-        <span>SCROLL</span>
+      
+      <!-- Clickable Vertical Scroll Indicator -->
+      <div onclick="document.getElementById('screen2').scrollIntoView({ behavior: 'smooth' });" class="scroll-indicator-vertical" style="position: absolute; bottom: 40px; left: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 10;">
+        <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #ffffff;">SCROLL</span>
+        <div style="width: 1px; height: 40px; background: #ffffff;"></div>
       </div>
-    </div>
+    </section>
 
-    <!-- Bottom Reveal Section -->
-    <div class="bottom-reveal">
-      <div class="reveal-content">
+
+    <!-- PAGE 2: Mountain Ridge & Realtor Title -->
+    <section class="screen screen-2" id="screen2" style="position: relative;">
+      <div class="screen-2-content">
         <h2 class="tagline-main">MARCI METZGER - THE RIDGE REALTY GROUP</h2>
         <p class="tagline-sub">Pahrump Realtor</p>
       </div>
-    </div>
-  </header>
 
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const dropdownMenu = document.getElementById('dropdownMenu');
+      <!-- Clickable Vertical Scroll Indicator for Page 2 -->
+      <div onclick="const nextSec = document.getElementById('circleSection'); if(nextSec) nextSec.scrollIntoView({ behavior: 'smooth' });" class="scroll-indicator-vertical" style="position: absolute; bottom: 40px; left: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 10;">
+        <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #ffffff;">SCROLL</span>
+        <div style="width: 1px; height: 40px; background: #ffffff;"></div>
+      </div>
+    </section>
 
-    menuToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      menuToggle.classList.toggle('active');
-      dropdownMenu.classList.toggle('open');
-    });
 
-    document.addEventListener('click', (e) => {
-      if (!menuToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
-        menuToggle.classList.remove('active');
-        dropdownMenu.classList.remove('open');
+    <!-- PAGE 3: Lake & Rising Circle Dome with Marci's Profile -->
+    <section class="screen screen-3" id="circleSection" style="position: relative;">
+      <div class="rising-circle" id="risingCircle">
+        <div class="curved-text-svg-container">
+          <svg viewBox="0 0 1200 200" class="curve-svg">
+            <path id="textArc" d="M 180,150 A 640,640 0 0,1 1020,150" fill="none" />
+            <text>
+              <textPath href="#textArc" startOffset="50%" text-anchor="middle" class="curved-title">
+                MARCI METZGER
+              </textPath>
+            </text>
+          </svg>
+        </div>
+        <div class="marci-profile-container" style="margin-top: -10px;">
+          <div class="marci-photo-circle">
+            <img src="img/pic2.webp" alt="Marci Metzger" />
+          </div>
+          <div class="marci-details" style="margin-top: 20px;">
+            <h3>REALTOR FOR NEARLY 3 DECADES</h3>
+            <p class="marci-phone"><a href="tel:2069196886">206-919-6886</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clickable Vertical Scroll Indicator for Page 3 -->
+      <div onclick="const nextSec = document.getElementById('location'); if(nextSec) nextSec.scrollIntoView({ behavior: 'smooth' });" class="scroll-indicator-vertical" style="position: absolute; bottom: 110px; left: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 10;">
+        <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #ffffff;">SCROLL</span>
+        <div style="width: 1px; height: 40px; background: #5a738a;"></div>
+      </div>
+    </section>
+
+
+    <!-- SCREEN 4: GET IT SOLD (SLIDESHOW) -->
+    <section class="screen-4" id="location" style="position: relative;">
+      <div class="screen-4-content" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 15px;">
+        
+        <!-- Moved Higher Up -->
+        <h2 class="section-title" style="font-size: 2.8rem; margin-top: -55px;">GET IT SOLD</h2>
+        
+        <div class="slider-container">
+          <div class="slide-track">
+            <div class="slide active"><img src="img/pic3.webp" alt="Property 1"></div>
+            <div class="slide"><img src="img/pic4.webp" alt="Property 2"></div>
+            <div class="slide"><img src="img/pic5.webp" alt="Property 3"></div>
+          </div>
+          <!-- Slider Navigation -->
+          <div class="slider-nav" style="position: relative; z-index: 20;">
+            <button class="slider-arrow prev-arrow" type="button" style="cursor: pointer; pointer-events: auto;" onclick="moveSlide(-1)">&#10094;</button>
+            <span class="slide-number active-num" id="currentNum">1</span>
+            <div class="slider-progress-bar">
+              <div class="progress-fill" id="progressFill" style="width: 33.33%;"></div>
+            </div>
+            <span class="slide-number" id="totalNum">3</span>
+            <button class="slider-arrow next-arrow" type="button" style="cursor: pointer; pointer-events: auto;" onclick="moveSlide(1)">&#10095;</button>
+          </div>
+        </div>
+
+        <p class="location-description" id="locationDesc" style="margin-top: 15px; font-size: 0.9rem; max-width: 700px; text-align: center;">
+          Our team works hard everyday to grow and learn, so that we may continue to excel in our market. Our clients deserve our best, & we want to make sure our best is better every year.
+        </p>
+        
+        <h4 class="location-tagline" id="locationTagline" style="margin-top: 8px; font-size: 0.95rem;">
+          Top Residential Sales Last 5 Years
+        </h4>
+      </div>
+
+      <!-- Clickable Vertical Scroll Indicator for Page 4 -->
+      <div onclick="const nextSec = document.getElementById('quote-section'); if(nextSec) nextSec.scrollIntoView({ behavior: 'smooth' });" class="scroll-indicator-vertical" style="position: absolute; bottom: 40px; left: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 10;">
+        <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #ffffff;">SCROLL</span>
+        <div style="width: 1px; height: 40px; background: #ffffff;"></div>
+      </div>
+    </section>
+
+    <!-- Global Slider Controller Script -->
+    <script>
+      let globalIndex = 0;
+      const slideDataList = [
+        {
+          desc: "Our team works hard everyday to grow and learn, so that we may continue to excel in our market. Our clients deserve our best, & we want to make sure our best is better every year.",
+          tagline: "Top Residential Sales Last 5 Years"
+        },
+        {
+          desc: "Get it SOLD! We exhaust every avenue to ensure our listings are at the fingertips of every possible buyer, getting you top dollar for your home.",
+          tagline: "Don't Just List it..."
+        },
+        {
+          desc: "Nobody knows the market like we do. Enjoy having a pro at your service. Market analysis, upgrades lists, contractors on speed dial, & more!",
+          tagline: "Guide to Buyers"
+        }
+      ];
+
+      function moveSlide(direction) {
+        const slides = document.querySelectorAll(".slide");
+        if (slides.length === 0) return;
+
+        globalIndex = (globalIndex + direction + slides.length) % slides.length;
+
+        // Toggle active classes on images
+        slides.forEach((slide, i) => {
+          if (i === globalIndex) {
+            slide.classList.add("active");
+          } else {
+            slide.classList.remove("active");
+          }
+        });
+
+        // Update counter number
+        const currentNum = document.getElementById("currentNum");
+        if (currentNum) currentNum.textContent = globalIndex + 1;
+
+        // Update progress bar width
+        const progressFill = document.getElementById("progressFill");
+        if (progressFill) {
+          progressFill.style.width = ((globalIndex + 1) / slides.length) * 100 + "%";
+        }
+
+        // Update dynamic text blocks
+        const locationDesc = document.getElementById("locationDesc");
+        const locationTagline = document.getElementById("locationTagline");
+        if (locationDesc && locationTagline && slideDataList[globalIndex]) {
+          locationDesc.textContent = slideDataList[globalIndex].desc;
+          locationTagline.textContent = slideDataList[globalIndex].tagline;
+        }
       }
-    });
-  </script>
+    </script>
+        </div>
 
-</body>
-</html>
+
+      <!-- Clickable Vertical Scroll Indicator for Page 4 -->
+      <div onclick="const nextSec = document.getElementById('quote-section'); if(nextSec) nextSec.scrollIntoView({ behavior: 'smooth' });" class="scroll-indicator-vertical" style="position: absolute; bottom: 70px; left: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 10;">
+        <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #ffffff;">SCROLL</span>
+        <div style="width: 1px; height: 40px; background: #ffffff;"></div>
+      </div>
+    </section>
+
+    <!-- Global Slider Controller Script -->
+    <script>
+      let globalIndex = 0;
+      const slideDataList = [
+        {
+          desc: "Our team works hard everyday to grow and learn, so that we may continue to excel in our market. Our clients deserve our best, & we want to make sure our best is better every year.",
+          tagline: "Top Residential Sales Last 5 Years"
+        },
+        {
+          desc: "Get it SOLD! We exhaust every avenue to ensure our listings are at the fingertips of every possible buyer, getting you top dollar for your home.",
+          tagline: "Don't Just List it..."
+        },
+        {
+          desc: "Nobody knows the market like we do. Enjoy having a pro at your service. Market analysis, upgrades lists, contractors on speed dial, & more!",
+          tagline: "Guide to Buyers"
+        }
+      ];
+
+      function moveSlide(direction) {
+        const slides = document.querySelectorAll(".slide");
+        if (slides.length === 0) return;
+
+        globalIndex = (globalIndex + direction + slides.length) % slides.length;
+
+        // Update active slide image
+        slides.forEach((slide, i) => {
+          slide.classList.toggle("active", i === globalIndex);
+        });
+
+        // Update counter number
+        const currentNum = document.getElementById("currentNum");
+        if (currentNum) currentNum.textContent = globalIndex + 1;
+
+        // Update progress bar width
+        const progressFill = document.getElementById("progressFill");
+        if (progressFill) {
+          progressFill.style.width = ((globalIndex + 1) / slides.length) * 100 + "%";
+        }
+
+        // Update dynamic text blocks
+        const locationDesc = document.getElementById("locationDesc");
+        const locationTagline = document.getElementById("locationTagline");
+        if (locationDesc && locationTagline && slideDataList[globalIndex]) {
+          locationDesc.textContent = slideDataList[globalIndex].desc;
+          locationTagline.textContent = slideDataList[globalIndex].tagline;
+        }
+      }
+    </script>
+
+    
+    <!-- --- SCREEN 5: QUOTE / FEATURE SECTION --- -->
+  <section class="screen-5" id="quote-section">
+    <div class="screen-5-overlay"></div>
+    <div class="screen-5-content">
+      <div class="quote-box">
+        <span class="quote-icon">“</span>
+        <p class="quote-text">
+          Instead of corridors, walking paths connect the apartments — making Marci Metzger listings feel closer to a group of private homes than a standard property.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- SCREEN 6: PHOTO GALLERY HORIZONTAL SCROLL -->
+    <section class="screen-6" id="screen6">
+      <h2 style="font-family: 'Bodoni Moda', serif; font-size: 2.2rem; color: #1a1a1a; margin-top: -35px; margin-bottom: 30px; text-align: center; letter-spacing: 2px;">PHOTO GALLERY</h2>
+
+      <div class="carousel-outer-container">
+        <!-- Scroller Track -->
+        <div class="custom-media-scroller" id="customScroller">
+          <div class="carousel-card"><img src="img/pc1.webp" alt="Property 1"></div>
+          <div class="carousel-card"><img src="img/pc2.webp" alt="Property 2"></div>
+          <div class="carousel-card"><img src="img/pc3.webp" alt="Property 3"></div>
+          <div class="carousel-card"><img src="img/pc4.webp" alt="Property 4"></div>
+          <div class="carousel-card"><img src="img/pc5.webp" alt="Property 5"></div>
+          <div class="carousel-card"><img src="img/pc6.webp" alt="Property 6"></div>
+          <div class="carousel-card"><img src="img/pc7.webp" alt="Property 7"></div>
+        </div>
+      </div>
+
+      <!-- Script to convert mouse wheel scrolling into smooth horizontal sliding -->
+      <script>
+        const scroller = document.getElementById('customScroller');
+        if (scroller) {
+          scroller.addEventListener('wheel', (evt) => {
+            evt.preventDefault();
+            scroller.scrollLeft += evt.deltaY;
+          }, { passive: false });
+        }
+      </script>
+    </section>
+<section class="screen-7" id="screen7">
+  <!-- YOUR ORIGINAL CLOUDS CONTAINER (KEPT FULLY INTACT) -->
+  <div class="heavy-clouds-container">
+    <div class="cloud-track-images">
+      <img src="img/cloud1.png" class="moving-cloud-img" style="--i: 1;" alt="Cloud">
+<img src="img/cloud2.png" class="moving-cloud-img" style="--i: 2;" alt="Cloud">
+<img src="img/cloud3.png" class="moving-cloud-img" style="--i: 3;" alt="Cloud">
+<img src="img/cloud4.png" class="moving-cloud-img" style="--i: 4;" alt="Cloud">
+<img src="img/cloud5.png" class="moving-cloud-img" style="--i: 5;" alt="Cloud">
+
+<img src="img/cloud5.png" class="moving-cloud-img" style="--i: 6;" alt="Cloud">
+<img src="img/cloud4.png" class="moving-cloud-img" style="--i: 7;" alt="Cloud">
+<img src="img/cloud3.png" class="moving-cloud-img" style="--i: 8;" alt="Cloud">
+<img src="img/cloud2.png" class="moving-cloud-img" style="--i: 9;" alt="Cloud">
+<img src="img/cloud1.png" class="moving-cloud-img" style="--i: 10;" alt="Cloud">
+    </div>
+  </div>
+
+  <!-- SEARCH LISTINGS FORM PLACED OVER/BELOW THE CLOUDS -->
+  <div class="screen-7-content">
+    <h2 class="search-section-title">SEARCH LISTINGS</h2>
+    
+    <form class="search-form" id="searchListingsForm">
+      <div class="form-row">
+        <!-- Location -->
+        <div class="form-group">
+          <label for="searchLocation">LOCATION</label>
+          <select id="searchLocation" name="location">
+            <option value="any">Any</option>
+            <option value="Alamo">Alamo</option>
+            <option value="Alton">Alton</option>
+            <option value="Amargosa Valley">Amargosa Valley</option>
+            <option value="Beatty">Beatty</option>
+            <option value="Beryl">Beryl</option>
+            <option value="Blue Diamond">Blue Diamond</option>
+            <option value="Boulder City">Boulder City</option>
+            <option value="Brian Head">Brian Head</option>
+            <option value="Cal Nev Ari">Cal Nev Ari</option>
+            <option value="Caliente">Caliente</option>
+            <option value="Cold Creek">Cold Creek</option>
+            <option value="Crystal">Crystal</option>
+            <option value="Duck Creek Village">Duck Creek Village</option>
+            <option value="Dyer">Dyer</option>
+            <option value="Elko">Elko</option>
+            <option value="Ely">Ely</option>
+            <option value="Goldfield">Goldfield</option>
+            <option value="Goodsprings">Goodsprings</option>
+            <option value="Hatch">Hatch</option>
+            <option value="Henderson">Henderson</option>
+            <option value="Indian Springs">Indian Springs</option>
+            <option value="Jean">Jean</option>
+            <option value="Las Vegas">Las Vegas</option>
+            <option value="Laughlin">Laughlin</option>
+            <option value="Logandale">Logandale</option>
+            <option value="Manhattan">Manhattan</option>
+            <option value="Mc Gill">Mc Gill</option>
+            <option value="Mesquite">Mesquite</option>
+            <option value="Moapa">Moapa</option>
+            <option value="Mount Charleston">Mount Charleston</option>
+            <option value="Mountain Springs">Mountain Springs</option>
+            <option value="North Las Vegas">North Las Vegas</option>
+            <option value="Overton">Overton</option>
+            <option value="Pahrump">Pahrump</option>
+            <option value="Palm Gardens">Palm Gardens</option>
+            <option value="Panaca">Panaca</option>
+            <option value="Parowan">Parowan</option>
+            <option value="Pioche">Pioche</option>
+            <option value="Round Mountain">Round Mountain</option>
+            <option value="Sandy Valley">Sandy Valley</option>
+            <option value="Searchlight">Searchlight</option>
+            <option value="Tonopah">Tonopah</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <!-- Type -->
+        <div class="form-group">
+          <label for="searchType">TYPE</label>
+          <select id="searchType" name="type">
+            <option value="any">Any</option>
+            <option value="Land">Land</option>
+            <option value="Residential Lease">Residential Lease</option>
+            <option value="High Rise">High Rise</option>
+            <option value="Residential">Residential</option>
+          </select>
+        </div>
+
+        <!-- Sort By -->
+        <div class="form-group">
+          <label for="searchSort">SORT BY</label>
+          <select id="searchSort" name="sort">
+            <option value="Newest">Newest</option>
+            <option value="Oldest">Oldest</option>
+            <option value="Least Expensive to Most">Least Expensive to Most</option>
+            <option value="Most Expensive to Least">Most Expensive to Least</option>
+            <option value="Bedrooms (Low to High)">Bedrooms (Low to High)</option>
+            <option value="Bedrooms (High to Low)">Bedrooms (High to Low)</option>
+            <option value="Bathrooms (Low to High)">Bathrooms (Low to High)</option>
+            <option value="Bathrooms (High to Low)">Bathrooms (High to Low)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <!-- Bedrooms -->
+        <div class="form-group">
+          <label for="searchBeds">BEDROOMS</label>
+          <select id="searchBeds" name="bedrooms">
+            <option value="Any Number">Any Number</option>
+            <option value="Studio">Studio</option>
+            <option value="1+">1+</option>
+            <option value="2+">2+</option>
+            <option value="3+">3+</option>
+            <option value="4+">4+</option>
+            <option value="5+">5+</option>
+            <option value="6+">6+</option>
+          </select>
+        </div>
+
+        <!-- Baths -->
+        <div class="form-group">
+          <label for="searchBaths">BATHS</label>
+          <select id="searchBaths" name="baths">
+            <option value="Any Number">Any Number</option>
+            <option value="1+">1+</option>
+            <option value="2+">2+</option>
+            <option value="3+">3+</option>
+            <option value="4+">4+</option>
+            <option value="5+">5+</option>
+            <option value="6+">6+</option>
+          </select>
+        </div>
+
+        <!-- Min Price -->
+        <div class="form-group">
+          <label for="minPrice">MIN PRICE</label>
+          <input type="text" id="minPrice" name="minPrice" placeholder="" />
+        </div>
+
+        <!-- Max Price -->
+        <div class="form-group">
+          <label for="maxPrice">MAX PRICE</label>
+          <input type="text" id="maxPrice" name="maxPrice" placeholder="" />
+        </div>
+      </div>
+
+      <!-- Search Button -->
+      <div class="form-group btn-group">
+        <button type="submit" class="search-submit-btn">SEARCH NOW</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+
