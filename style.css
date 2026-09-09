@@ -1,5 +1,65 @@
 @import url('https://fonts.cdnfonts.com/css/didot');
 /* --- UNIFORM FULL-SCREEN HEIGHT FOR ALL PAGES --- */
+/* Universal Box-Sizing & Overflow Prevention */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
+  font-family: sans-serif;
+}
+/* Apply this to all your screen sections */
+[class*="screen-"] {
+  width: 100%;
+  min-height: 100vh; /* Ensures it fills the screen, but can grow if needed */
+  padding: 4rem 2rem; /* Consistent breathing room */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ensure images and media never break out of containers */
+img, video, canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Make all main sections fluid and flexible */
+section, .screen-1, .screen-2, .screen-3, .screen-4, .screen-5, .screen-6, .screen-7, .screen-8, .screen-9, .screen-10 {
+  width: 100%;
+  min-height: 100vh;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.grid-container, .card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+@media screen and (max-width: 768px) {
+  /* Reduce padding on mobile for all sections */
+  section, [class*="screen-"] {
+    padding: 2rem 1rem;
+    min-height: auto; /* Allow sections to fit content naturally on mobile */
+  }
+
+  /* Scale down large headings */
+  h1 { font-size: 2rem !important; }
+  h2 { font-size: 1.5rem !important; }
+  p { font-size: 0.95rem !important; }
+}
 .screen, 
 .screen-1, 
 .screen-4, 
@@ -826,8 +886,9 @@ margin-top: 0;
 /* --- SCREEN 6: HORIZONTAL SCROLL GALLERY --- */
 .screen-6 {
   position: relative;
-  width: 100vw;
-  min-height: 90vh;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
   background: #ffffff;
   display: flex;
   flex-direction: column;
@@ -838,6 +899,13 @@ margin-top: 0;
   overflow: hidden;
   margin-left: calc(-50vw + 50%); /* Breaks out of any parent centering constraints */
   margin-right: calc(-50vw + 50%);
+}
+.screen-6-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Automatically adjusts columns based on screen size */
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .screen-6 .carousel-outer-container {
