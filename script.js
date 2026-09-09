@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    
   // ==========================================
   // 1. NAVIGATION DROPDOWN
   // ==========================================
@@ -21,220 +22,80 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ==========================================
-  // 2. SEAMLESS RISING CIRCLE SCROLL ANIMATION
+  // 2. SEAMLESS RISING CIRCLE SCROLL ANIMATION (Page 3 & Page 8 domes)
   // ==========================================
-  const circleSection = document.getElementById('circleSection');
-  const risingCircle = document.getElementById('risingCircle');
-
-  if (circleSection && risingCircle) {
-    risingCircle.style.transformOrigin = 'bottom center';
-
-    window.addEventListener('scroll', () => {
-      const rect = circleSection.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      const progress = Math.min(Math.max((windowHeight - rect.top) / (windowHeight * 1.2), 0), 1);
-
-      const translateY = (1 - progress) * 45;
-      const scale = 0.90 + (progress * 0.10);
-
-      risingCircle.style.transform = `translateY(${translateY}%) scale(${scale})`;
-    });
-  }
-
-  // ==========================================
-  // 3. SCREEN 4 3-IMAGE SLIDER & DYNAMIC TEXT
-  // ==========================================
-  const slides = document.querySelectorAll(".slide");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  const currentNum = document.getElementById("currentNum");
-  const progressFill = document.getElementById("progressFill");
-  const locationDesc = document.getElementById("locationDesc");
-  const locationTagline = document.getElementById("locationTagline");
-
-  // Custom slide text mapping matching your requested copy
-  const slideData = [
-    {
-      desc: "Our team works hard everyday to grow and learn, so that we may continue to excel in our market. Our clients deserve our best, & we want to make sure our best is better every year.",
-      tagline: "Top Residential Sales Last 5 Years"
-    },
-    {
-      desc: "Get it SOLD! We exhaust every avenue to ensure our listings are at the fingertips of every possible buyer, getting you top dollar for your home.",
-      tagline: "Don't Just List it..."
-    },
-    {
-      desc: "Nobody knows the market like we do. Enjoy having a pro at your service. Market analysis, upgrades lists, contractors on speed dial, & more!",
-      tagline: "Guide to Buyers"
-    }
-  ];
-
-  if (slides.length > 0 && prevBtn && nextBtn) {
-    let currentIndex = 0;
-    const totalSlides = slides.length;
-
-    function updateSlider(index) {
-      // Toggle active slide image
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-      });
-      
-      // Update numbers and progress bar
-      if (currentNum) {
-        currentNum.textContent = index + 1;
-      }
-      
-      if (progressFill) {
-        const progressPercent = ((index + 1) / totalSlides) * 100;
-        progressFill.style.width = progressPercent + "%";
-      }
-
-      // Update description and tagline text dynamically
-      if (locationDesc && locationTagline && slideData[index]) {
-        locationDesc.textContent = slideData[index].desc;
-        locationTagline.textContent = slideData[index].tagline;
-      }
-    }
-
-    nextBtn.addEventListener("click", function () {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateSlider(currentIndex);
-    });
-
-    prevBtn.addEventListener("click", function () {
-      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-      updateSlider(currentIndex);
-    });
-  }
-});
-document.addEventListener("DOMContentLoaded", function () {
-  const track = document.querySelector('.cloud-track-images');
-  if (!track) return;
-
-  let currentX = 0;
-  const speed = 0.8; // Increase this to 2 or 3 temporarily if you want to test faster movement
-
-  function step() {
-    currentX -= speed;
-    
-    // Safely calculate the width of one panel
-    const totalWidth = track.offsetWidth;
-    const halfWidth = totalWidth > 0 ? totalWidth / 2 : window.innerWidth;
-
-    // Seamless reset loop
-    if (Math.abs(currentX) >= halfWidth) {
-      currentX = 0;
-    }
-
-    track.style.transform = `translateX(${currentX}px)`;
-    requestAnimationFrame(step);
-  }
-
-  requestAnimationFrame(step);
-});
-document.addEventListener("DOMContentLoaded", function () {
-  const scroller = document.getElementById('mediaScroller');
-  const prevBtn = document.querySelector('.screen-6 .prev-btn-6');
-  const nextBtn = document.querySelector('.screen-6 .next-btn-6');
-
-  if (!scroller || !prevBtn || !nextBtn) return;
-
-  nextBtn.addEventListener('click', () => {
-    const itemWidth = scroller.querySelector('.media-element').offsetWidth + 20; // width + gap
-    scroller.scrollBy({ left: itemWidth * 3, behavior: 'smooth' });
-  });
-
-  prevBtn.addEventListener('click', () => {
-    const itemWidth = scroller.querySelector('.media-element').offsetWidth + 20;
-    scroller.scrollBy({ left: -(itemWidth * 3), behavior: 'smooth' });
-  });
-});
 <script>
-  const scroller = document.getElementById('customScroller');
-
-  if (scroller) {
-    let targetScroll = scroller.scrollLeft;
-    let isAnimating = false;
-
-    scroller.addEventListener('wheel', (evt) => {
-      evt.preventDefault();
-
-      // Increased sensitivity
-      const scrollForce = Math.abs(evt.deltaY) < 50
-        ? evt.deltaY * 30
-        : evt.deltaY * 8;
-
-      targetScroll += scrollForce;
-
-      // Clamp to scroller bounds
-      const maxScroll = scroller.scrollWidth - scroller.clientWidth;
-      targetScroll = Math.max(
-        0,
-        Math.min(targetScroll, maxScroll)
-      );
-<script>
-  const scroller = document.getElementById('customScroller');
-
-  if (scroller) {
-    let targetScroll = scroller.scrollLeft;
-    let isAnimating = false;
-
-    scroller.addEventListener('wheel', (evt) => {
-      evt.preventDefault();
-
-      // High sensitivity
-      const sensitivity = 5;
-
-      targetScroll += evt.deltaY * sensitivity;
-
-      // Keep within scrolling limits
-      const maxScroll = scroller.scrollWidth - scroller.clientWidth;
-
-      targetScroll = Math.max(
-        0,
-        Math.min(targetScroll, maxScroll)
-      );
-
-      if (!isAnimating) {
-        isAnimating = true;
-
-        function smoothScroll() {
-          const current = scroller.scrollLeft;
-          const difference = targetScroll - current;
-
-          if (Math.abs(difference) > 0.5) {
-            // Smooth glide
-            scroller.scrollLeft += difference * 0.08;
-            requestAnimationFrame(smoothScroll);
-          } else {
-            scroller.scrollLeft = targetScroll;
-            isAnimating = false;
-          }
-        }
-
-        requestAnimationFrame(smoothScroll);
-      }
-    }, { passive: false });
-  }
-</script>
-// Handles rising dome animation for both Page 3 and Page 8
-  const domeSections = [
-    { section: document.getElementById('circleSection'), element: document.getElementById('risingCircle') },
-    { section: document.getElementById('circleSection8'), element: document.getElementById('risingCircle8') }
-  ];
-
   window.addEventListener('scroll', () => {
+    const section = document.getElementById('circleSection');
+    const dome = document.getElementById('risingCircle');
+    
+    if (!section || !dome) return;
+
+    const rect = section.getBoundingClientRect();
     const windowHeight = window.innerHeight;
 
-    domeSections.forEach(({ section, element }) => {
-      if (section && element) {
-        const rect = section.getBoundingClientRect();
-        const progress = Math.min(Math.max((windowHeight - rect.top) / (windowHeight * 1.2), 0), 1);
+    // Calculates how far Page 3 has scrolled into the viewport from the bottom
+    let progress = (windowHeight - rect.top) / windowHeight;
+    progress = Math.max(0, Math.min(1, progress));
 
-        const translateY = (1 - progress) * 45;
-        const scale = 0.90 + (progress * 0.10);
+    // Smoothly translates the dome from 40% down up to 0% as you scroll into the page
+    const translateY = (1 - progress) * 40;
+    const scale = 0.95 + (progress * 0.05);
 
-        element.style.transform = `translateY(${translateY}%) scale(${scale})`;
-      }
-    });
+    dome.style.transform = `translateY(${translateY}%) scale(${scale})`;
   });
+</script>
+  // ==========================================
+  // 3. HORIZONTAL PHOTO GALLERY (Screen 6) — MOUSE WHEEL TO HORIZONTAL SCROLL
+  // ==========================================
+  // ==========================================
+// 3. HORIZONTAL PHOTO GALLERY (Screen 6) — SMART SCROLL HANDLER
+// ==========================================
+const scroller = document.getElementById('customScroller');
+
+if (scroller) {
+  scroller.addEventListener('wheel', (evt) => {
+    const maxScrollLeft = scroller.scrollWidth - scroller.clientWidth;
+    const currentScroll = scroller.scrollLeft;
+    
+    // Check if we are trying to scroll past the boundaries
+    const atStart = currentScroll <= 0 && evt.deltaY < 0;
+    const atEnd = currentScroll >= maxScrollLeft && evt.deltaY > 0;
+
+    // If we aren't stuck at an edge, hijack the scroll for horizontal movement
+    if (!atStart && !atEnd) {
+      evt.preventDefault();
+      scroller.scrollLeft += evt.deltaY * 2.5; // Adjust speed multiplier here if needed
+    }
+    // If we hit the boundary (start/end), it naturally lets the window scroll vertically!
+  }, { passive: false });
+}
+  // ==========================================
+  // 4. SCREEN 7 — MOVING CLOUDS ANIMATION
+  // ==========================================
+  const track = document.querySelector('.cloud-track-images');
+  if (track) {
+    let currentX = 0;
+    const speed = 0.8; // Increase to 2 or 3 to test faster movement
+
+    function step() {
+      currentX -= speed;
+
+      const totalWidth = track.offsetWidth;
+      const halfWidth = totalWidth > 0 ? totalWidth / 2 : window.innerWidth;
+
+      if (Math.abs(currentX) >= halfWidth) {
+        currentX = 0;
+      }
+
+      track.style.transform = `translateX(${currentX}px)`;
+      requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+  }
+});
+const domeSections = [
+  { section: document.getElementById('circleSection'), element: document.getElementById('risingCircle') }
+  // removed: circleSection8 / risingCircle8
+];

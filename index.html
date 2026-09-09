@@ -6,30 +6,43 @@
   <title>Marci Metzger Homes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,600;0,6..96,700;1,6..96,400&family=Corinthia:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Upper Right Navigation Container -->
-  <div class="nav-container">
-    <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-
-    <nav class="dropdown-menu" id="dropdownMenu">
-      <ul class="nav-links">
-        <li><a href="#home" class="active">HOME</a></li>
-        <li><a href="#listings">LISTINGS</a></li>
-        <li><a href="#move">LET'S MOVE</a></li>
-        <li><a href="#about">ABOUT US</a></li>
-      </ul>
-    </nav>
+<!-- Fixed Upper Right Navigation Container (Overlays All Pages) -->
+<div class="nav-container-fixed">
+  
+  <!-- Rotating Curved Text Ring -->
+  <div class="rotating-text-ring">
+    <svg viewBox="0 0 200 200" width="120" height="120">
+      <path id="circlePath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="none" />
+      <text font-size="14" font-weight="bold" letter-spacing="8px">
+        <textPath href="#circlePath" startOffset="0%">
+          MARCI METZGER • REAL ESTATE • 
+        </textPath>
+      </text>
+    </svg>
   </div>
 
+  <!-- Hamburger Button in the Center -->
+  <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
 
+  <nav class="dropdown-menu" id="dropdownMenu">
+    <ul class="nav-links">
+      <li><a href="#home" class="active">HOME</a></li>
+      <li><a href="#listings">LISTINGS</a></li>
+      <li><a href="#move">LET'S MOVE</a></li>
+      <li><a href="#about">ABOUT US</a></li>
+    </ul>
+  </nav>
+</div>
   <!-- ONE SINGLE CONTINUOUS BACKGROUND CONTAINER -->
   <main class="continuous-background-container">
   
@@ -44,11 +57,11 @@
         <span class="script-word">Homes</span>
       </div>
       
-      <!-- Clickable Vertical Scroll Indicator -->
-      <div onclick="document.getElementById('screen2').scrollIntoView({ behavior: 'smooth' });" class="scroll-indicator-vertical" style="position: absolute; bottom: 40px; left: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 10;">
-        <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #ffffff;">SCROLL</span>
-        <div style="width: 1px; height: 40px; background: #ffffff;"></div>
-      </div>
+      <<!-- Clickable Vertical Scroll Indicator with Animated Line -->
+<div onclick="const currentSec = this.closest('section'); const nextSec = currentSec.nextElementSibling; if(nextSec) nextSec.scrollIntoView({ behavior: 'smooth' });" class="scroll-indicator-vertical" style="position: absolute; bottom: 40px; left: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 9999;">
+  <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #ffffff;">SCROLL</span>
+  <div class="animated-scroll-line" style="color: #ffffff;"></div>
+</div>
     </section>
 
 
@@ -59,201 +72,119 @@
         <p class="tagline-sub">Pahrump Realtor</p>
       </div>
 
-      <!-- Clickable Vertical Scroll Indicator for Page 2 -->
-      <div onclick="const nextSec = document.getElementById('circleSection'); if(nextSec) nextSec.scrollIntoView({ behavior: 'smooth' });" class="scroll-indicator-vertical" style="position: absolute; bottom: 40px; left: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 10;">
-        <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #ffffff;">SCROLL</span>
-        <div style="width: 1px; height: 40px; background: #ffffff;"></div>
-      </div>
+      <!-- Clickable Vertical Scroll Indicator with Animated Line -->
+<div onclick="const currentSec = this.closest('section'); const nextSec = currentSec.nextElementSibling; if(nextSec) nextSec.scrollIntoView({ behavior: 'smooth' });" class="scroll-indicator-vertical" style="position: absolute; bottom: 40px; left: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 9999;">
+  <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #ffffff;">SCROLL</span>
+  <div class="animated-scroll-line" style="color: #ffffff;"></div>
+</div>
     </section>
 
 
     <!-- PAGE 3: Lake & Rising Circle Dome with Marci's Profile -->
-    <section class="screen screen-3" id="circleSection" style="position: relative;">
-      <div class="rising-circle" id="risingCircle">
-        <div class="curved-text-svg-container">
-          <svg viewBox="0 0 1200 200" class="curve-svg">
-            <path id="textArc" d="M 180,150 A 640,640 0 0,1 1020,150" fill="none" />
-            <text>
-              <textPath href="#textArc" startOffset="50%" text-anchor="middle" class="curved-title">
-                MARCI METZGER
-              </textPath>
-            </text>
-          </svg>
-        </div>
-        <div class="marci-profile-container" style="margin-top: -10px;">
-          <div class="marci-photo-circle">
-            <img src="img/pic2.webp" alt="Marci Metzger" />
-          </div>
-          <div class="marci-details" style="margin-top: 20px;">
-            <h3>REALTOR FOR NEARLY 3 DECADES</h3>
-            <p class="marci-phone"><a href="tel:2069196886">206-919-6886</a></p>
-          </div>
-        </div>
+<section class="screen screen-3" id="circleSection" style="position: relative; overflow: hidden;">
+  
+  <!-- Clickable Vertical Scroll Indicator with Animated Line -->
+  <div onclick="const currentSec = this.closest('section'); const nextSec = currentSec.nextElementSibling; if(nextSec) nextSec.scrollIntoView({ behavior: 'smooth' });" class="scroll-indicator-vertical" style="position: absolute; bottom: 90px; left: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 9999;">
+    <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #ffffff;">SCROLL</span>
+    <div class="animated-scroll-line" style="color: #ffffff;"></div>
+  </div>
+
+  <!-- The Rising Dome Card (Independent element that will translate on scroll) -->
+  <div class="rising-circle" id="risingCircle">
+    <div class="curved-text-svg-container">
+      <svg viewBox="0 0 1200 200" class="curve-svg">
+        <path id="textArc" d="M 180,150 A 640,640 0 0,1 1020,150" fill="none" />
+        <text>
+          <textPath href="#textArc" startOffset="50%" text-anchor="middle" class="curved-title">
+            MARCI METZGER
+          </textPath>
+        </text>
+      </svg>
+    </div>
+    <div class="marci-profile-container" style="margin-top: -10px;">
+      <div class="marci-photo-circle">
+        <img src="img/pic2.webp" alt="Marci Metzger" />
       </div>
-
-      <!-- Clickable Vertical Scroll Indicator for Page 3 -->
-      <div onclick="const nextSec = document.getElementById('location'); if(nextSec) nextSec.scrollIntoView({ behavior: 'smooth' });" class="scroll-indicator-vertical" style="position: absolute; bottom: 110px; left: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 10;">
-        <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #ffffff;">SCROLL</span>
-        <div style="width: 1px; height: 40px; background: #5a738a;"></div>
+      <div class="marci-details" style="margin-top: 20px;">
+        <h3>REALTOR FOR NEARLY 3 DECADES</h3>
+        <p class="marci-phone"><a href="tel:2069196886">206-919-6886</a></p>
       </div>
-    </section>
+    </div>
+  </div>
+  <script>
+  const observerOptions = {
+    root: null,
+    threshold: 0.15 // Triggers when 15% of the section enters the screen
+  };
 
-
-    <!-- SCREEN 4: GET IT SOLD (SLIDESHOW) -->
-    <section class="screen-4" id="location" style="position: relative;">
-      <div class="screen-4-content" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 15px;">
-        
-        <!-- Moved Higher Up -->
-        <h2 class="section-title" style="font-size: 2.8rem; margin-top: -55px;">GET IT SOLD</h2>
-        
-        <div class="slider-container">
-          <div class="slide-track">
-            <div class="slide active"><img src="img/pic3.webp" alt="Property 1"></div>
-            <div class="slide"><img src="img/pic4.webp" alt="Property 2"></div>
-            <div class="slide"><img src="img/pic5.webp" alt="Property 3"></div>
-          </div>
-          <!-- Slider Navigation -->
-          <div class="slider-nav" style="position: relative; z-index: 20;">
-            <button class="slider-arrow prev-arrow" type="button" style="cursor: pointer; pointer-events: auto;" onclick="moveSlide(-1)">&#10094;</button>
-            <span class="slide-number active-num" id="currentNum">1</span>
-            <div class="slider-progress-bar">
-              <div class="progress-fill" id="progressFill" style="width: 33.33%;"></div>
-            </div>
-            <span class="slide-number" id="totalNum">3</span>
-            <button class="slider-arrow next-arrow" type="button" style="cursor: pointer; pointer-events: auto;" onclick="moveSlide(1)">&#10095;</button>
-          </div>
-        </div>
-
-        <p class="location-description" id="locationDesc" style="margin-top: 15px; font-size: 0.9rem; max-width: 700px; text-align: center;">
-          Our team works hard everyday to grow and learn, so that we may continue to excel in our market. Our clients deserve our best, & we want to make sure our best is better every year.
-        </p>
-        
-        <h4 class="location-tagline" id="locationTagline" style="margin-top: 8px; font-size: 0.95rem;">
-          Top Residential Sales Last 5 Years
-        </h4>
-      </div>
-
-      <!-- Clickable Vertical Scroll Indicator for Page 4 -->
-      <div onclick="const nextSec = document.getElementById('quote-section'); if(nextSec) nextSec.scrollIntoView({ behavior: 'smooth' });" class="scroll-indicator-vertical" style="position: absolute; bottom: 40px; left: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 10;">
-        <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #ffffff;">SCROLL</span>
-        <div style="width: 1px; height: 40px; background: #ffffff;"></div>
-      </div>
-    </section>
-
-    <!-- Global Slider Controller Script -->
-    <script>
-      let globalIndex = 0;
-      const slideDataList = [
-        {
-          desc: "Our team works hard everyday to grow and learn, so that we may continue to excel in our market. Our clients deserve our best, & we want to make sure our best is better every year.",
-          tagline: "Top Residential Sales Last 5 Years"
-        },
-        {
-          desc: "Get it SOLD! We exhaust every avenue to ensure our listings are at the fingertips of every possible buyer, getting you top dollar for your home.",
-          tagline: "Don't Just List it..."
-        },
-        {
-          desc: "Nobody knows the market like we do. Enjoy having a pro at your service. Market analysis, upgrades lists, contractors on speed dial, & more!",
-          tagline: "Guide to Buyers"
-        }
-      ];
-
-      function moveSlide(direction) {
-        const slides = document.querySelectorAll(".slide");
-        if (slides.length === 0) return;
-
-        globalIndex = (globalIndex + direction + slides.length) % slides.length;
-
-        // Toggle active classes on images
-        slides.forEach((slide, i) => {
-          if (i === globalIndex) {
-            slide.classList.add("active");
-          } else {
-            slide.classList.remove("active");
-          }
-        });
-
-        // Update counter number
-        const currentNum = document.getElementById("currentNum");
-        if (currentNum) currentNum.textContent = globalIndex + 1;
-
-        // Update progress bar width
-        const progressFill = document.getElementById("progressFill");
-        if (progressFill) {
-          progressFill.style.width = ((globalIndex + 1) / slides.length) * 100 + "%";
-        }
-
-        // Update dynamic text blocks
-        const locationDesc = document.getElementById("locationDesc");
-        const locationTagline = document.getElementById("locationTagline");
-        if (locationDesc && locationTagline && slideDataList[globalIndex]) {
-          locationDesc.textContent = slideDataList[globalIndex].desc;
-          locationTagline.textContent = slideDataList[globalIndex].tagline;
-        }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Pops up aggressively when entering
+        entry.target.classList.add('in-view');
+      } else {
+        // Resets when scrolling away, so it plays again next time you return
+        entry.target.classList.remove('in-view');
       }
-    </script>
-        </div>
+    });
+  }, observerOptions);
+
+  const page3 = document.getElementById('circleSection');
+  if (page3) {
+    observer.observe(page3);
+  }
+</script>
+</section>
+        
 
 
-      <!-- Clickable Vertical Scroll Indicator for Page 4 -->
-      <div onclick="const nextSec = document.getElementById('quote-section'); if(nextSec) nextSec.scrollIntoView({ behavior: 'smooth' });" class="scroll-indicator-vertical" style="position: absolute; bottom: 70px; left: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 10;">
-        <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #ffffff;">SCROLL</span>
-        <div style="width: 1px; height: 40px; background: #ffffff;"></div>
-      </div>
-    </section>
-
-    <!-- Global Slider Controller Script -->
-    <script>
-      let globalIndex = 0;
-      const slideDataList = [
-        {
-          desc: "Our team works hard everyday to grow and learn, so that we may continue to excel in our market. Our clients deserve our best, & we want to make sure our best is better every year.",
-          tagline: "Top Residential Sales Last 5 Years"
-        },
-        {
-          desc: "Get it SOLD! We exhaust every avenue to ensure our listings are at the fingertips of every possible buyer, getting you top dollar for your home.",
-          tagline: "Don't Just List it..."
-        },
-        {
-          desc: "Nobody knows the market like we do. Enjoy having a pro at your service. Market analysis, upgrades lists, contractors on speed dial, & more!",
-          tagline: "Guide to Buyers"
-        }
-      ];
-
-      function moveSlide(direction) {
-        const slides = document.querySelectorAll(".slide");
-        if (slides.length === 0) return;
-
-        globalIndex = (globalIndex + direction + slides.length) % slides.length;
-
-        // Update active slide image
-        slides.forEach((slide, i) => {
-          slide.classList.toggle("active", i === globalIndex);
-        });
-
-        // Update counter number
-        const currentNum = document.getElementById("currentNum");
-        if (currentNum) currentNum.textContent = globalIndex + 1;
-
-        // Update progress bar width
-        const progressFill = document.getElementById("progressFill");
-        if (progressFill) {
-          progressFill.style.width = ((globalIndex + 1) / slides.length) * 100 + "%";
-        }
-
-        // Update dynamic text blocks
-        const locationDesc = document.getElementById("locationDesc");
-        const locationTagline = document.getElementById("locationTagline");
-        if (locationDesc && locationTagline && slideDataList[globalIndex]) {
-          locationDesc.textContent = slideDataList[globalIndex].desc;
-          locationTagline.textContent = slideDataList[globalIndex].tagline;
-        }
-      }
-    </script>
-
+<!-- SCREEN 4: GET IT SOLD (SLIDESHOW) -->
+<section class="screen-4" id="location" style="position: relative;">
+      
+  <div class="screen-4-content" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 15px;">
     
+    <!-- Moved Higher Up -->
+    <h2 class="section-title" style="font-size: 2.8rem; margin-top: -55px;">GET IT SOLD</h2>
+    
+    <div class="slider-container">
+      <div class="slide-track">
+        <div class="slide active"><img src="img/pic3.webp" alt="Property 1"></div>
+        <div class="slide"><img src="img/pic4.webp" alt="Property 2"></div>
+        <div class="slide"><img src="img/pic5.webp" alt="Property 3"></div>
+      </div>
+      <!-- Slider Navigation -->
+      <div class="slider-nav" style="position: relative; z-index: 20;">
+        <button class="slider-arrow prev-arrow" type="button" style="cursor: pointer; pointer-events: auto;" onclick="moveSlide(-1)">&#10094;</button>
+        <span class="slide-number active-num" id="currentNum">1</span>
+        <div class="slider-progress-bar">
+          <div class="progress-fill" id="progressFill" style="width: 33.33%;"></div>
+        </div>
+        <span class="slide-number" id="totalNum">3</span>
+        <button class="slider-arrow next-arrow" type="button" style="cursor: pointer; pointer-events: auto;" onclick="moveSlide(1)">&#10095;</button>
+      </div>
+    </div>
+
+    <p class="location-description" id="locationDesc" style="margin-top: 15px; font-size: 0.9rem; max-width: 700px; text-align: center;">
+      Our team works hard everyday to grow and learn, so that we may continue to excel in our market. Our clients deserve our best, & we want to make sure our best is better every year.
+    </p>
+    
+    <h4 class="location-tagline" id="locationTagline" style="margin-top: 8px; font-size: 0.95rem;">
+      Top Residential Sales Last 5 Years
+    </h4>
+  </div>
+  <!-- Clickable Vertical Scroll Indicator with Animated Line -->
+      <div onclick="const currentSec = this.closest('section'); const nextSec = currentSec.nextElementSibling; if(nextSec) nextSec.scrollIntoView({ behavior: 'smooth' });" class="scroll-indicator-vertical" style="position: absolute; bottom: 40px; left: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 9999;">
+        <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #ffffff;">SCROLL</span>
+        <div class="animated-scroll-line" style="color: #ffffff;"></div>
+      </div>
+</section>
+
+
     <!-- --- SCREEN 5: QUOTE / FEATURE SECTION --- -->
   <section class="screen-5" id="quote-section">
+    <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #ffffff;">SCROLL</span>
+    <div style="width: 1px; height: 40px; background: #ffffff;"></div>
+  </div>
     <div class="screen-5-overlay"></div>
     <div class="screen-5-content">
       <div class="quote-box">
@@ -263,10 +194,17 @@
         </p>
       </div>
     </div>
+    <!-- Clickable Vertical Scroll Indicator with Animated Line -->
+      <div onclick="const currentSec = this.closest('section'); const nextSec = currentSec.nextElementSibling; if(nextSec) nextSec.scrollIntoView({ behavior: 'smooth' });" class="scroll-indicator-vertical" style="position: absolute; bottom: 40px; left: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 9999;">
+        <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #ffffff;">SCROLL</span>
+        <div class="animated-scroll-line" style="color: #ffffff;"></div>
+      </div>
   </section>
+
+
   <!-- SCREEN 6: PHOTO GALLERY HORIZONTAL SCROLL -->
     <section class="screen-6" id="screen6">
-      <h2 style="font-family: 'Bodoni Moda', serif; font-size: 2.2rem; color: #1a1a1a; margin-top: -35px; margin-bottom: 30px; text-align: center; letter-spacing: 2px;">PHOTO GALLERY</h2>
+      <h2 style="font-family: 'Bodoni Moda', serif; font-size: 2.2rem; color: #2C3947; margin-top: -35px; margin-bottom: 30px; text-align: center; letter-spacing: 2px;">PHOTO GALLERY</h2>
 
       <div class="carousel-outer-container">
         <!-- Scroller Track -->
@@ -292,21 +230,22 @@
         }
       </script>
     </section>
-<section class="screen-7" id="screen7">
+<section class="screen-7" id="screen7" style="position: relative;">
+    
   <!-- YOUR ORIGINAL CLOUDS CONTAINER (KEPT FULLY INTACT) -->
   <div class="heavy-clouds-container">
     <div class="cloud-track-images">
       <img src="img/cloud1.png" class="moving-cloud-img" style="--i: 1;" alt="Cloud">
-<img src="img/cloud2.png" class="moving-cloud-img" style="--i: 2;" alt="Cloud">
-<img src="img/cloud3.png" class="moving-cloud-img" style="--i: 3;" alt="Cloud">
-<img src="img/cloud4.png" class="moving-cloud-img" style="--i: 4;" alt="Cloud">
-<img src="img/cloud5.png" class="moving-cloud-img" style="--i: 5;" alt="Cloud">
+      <img src="img/cloud2.png" class="moving-cloud-img" style="--i: 2;" alt="Cloud">
+      <img src="img/cloud3.png" class="moving-cloud-img" style="--i: 3;" alt="Cloud">
+      <img src="img/cloud4.png" class="moving-cloud-img" style="--i: 4;" alt="Cloud">
+      <img src="img/cloud5.png" class="moving-cloud-img" style="--i: 5;" alt="Cloud">
 
-<img src="img/cloud5.png" class="moving-cloud-img" style="--i: 6;" alt="Cloud">
-<img src="img/cloud4.png" class="moving-cloud-img" style="--i: 7;" alt="Cloud">
-<img src="img/cloud3.png" class="moving-cloud-img" style="--i: 8;" alt="Cloud">
-<img src="img/cloud2.png" class="moving-cloud-img" style="--i: 9;" alt="Cloud">
-<img src="img/cloud1.png" class="moving-cloud-img" style="--i: 10;" alt="Cloud">
+      <img src="img/cloud5.png" class="moving-cloud-img" style="--i: 6;" alt="Cloud">
+      <img src="img/cloud4.png" class="moving-cloud-img" style="--i: 7;" alt="Cloud">
+      <img src="img/cloud3.png" class="moving-cloud-img" style="--i: 8;" alt="Cloud">
+      <img src="img/cloud2.png" class="moving-cloud-img" style="--i: 9;" alt="Cloud">
+      <img src="img/cloud1.png" class="moving-cloud-img" style="--i: 10;" alt="Cloud">
     </div>
   </div>
 
@@ -444,6 +383,191 @@
       </div>
     </form>
   </div>
+
+  <!-- Clickable Vertical Scroll Indicator with Animated Line -->
+      <div onclick="const currentSec = this.closest('section'); const nextSec = currentSec.nextElementSibling; if(nextSec) nextSec.scrollIntoView({ behavior: 'smooth' });" class="scroll-indicator-vertical" style="position: absolute; bottom: 40px; left: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 9999;">
+        <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #ffffff;">SCROLL</span>
+        <div class="animated-scroll-line" style="color: #ffffff;"></div>
+      </div>
 </section>
 
 
+<!-- SCREEN 8: GET IT SOLD (DUPLICATE OF PAGE 4) -->
+<section class="screen-4 screen-8" id="page8" style="position: relative;">
+  <div class="screen-4-content">
+    <h2 class="section-title">GET IT SOLD</h2>
+
+    <div class="slider-container">
+      <div class="slide-track">
+        <div class="slide8 active"><img src="img/pp1.webp" alt="Property 1"></div>
+        <div class="slide8"><img src="img/pp2.webp" alt="Property 2"></div>
+        <div class="slide8"><img src="img/pp3.webp" alt="Property 3"></div>
+      </div>
+      <div class="slider-nav">
+        <button class="slider-arrow" type="button" onclick="moveSlide8(-1)">&#10094;</button>
+        <span class="span slide-number active-num" id="currentNum8">1</span>
+        <div class="slider-progress-bar">
+          <div class="progress-fill" id="progressFill8" style="width: 33.33%;"></div>
+        </div>
+        <span class="slide-number">3</span>
+        <button class="slider-arrow" type="button" onclick="moveSlide8(1)">&#10095;</button>
+      </div>
+    </div>
+
+    <p class="location-description" id="locationDesc8" style="text-align: center; max-width: 800px; margin: 0 auto;">
+      Nervous about your property adventure? Don’t be. Whether you're getting ready to buy or sell your residence, looking at investment properties, or just curious about the markets, our team ensures you get the best experience possible!
+    </p>
+    <h4 class="location-tagline" id="locationTagline8">Real Estate Done Right</h4>
+  </div>
+<!-- Clickable Vertical Scroll Indicator with Animated Line -->
+<div onclick="const s = this.closest('section'); let n = s.nextElementSibling; while(n && n.tagName !== 'SECTION') { n = n.nextElementSibling; } if(n) n.scrollIntoView({ behavior: 'smooth' });" class="scroll-indicator-vertical" style="position: absolute; bottom: 40px; left: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 9999;">
+  <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #ffffff;">SCROLL</span>
+  <div class="animated-scroll-line" style="color: #ffffff;"></div>
+</div>
+</section>
+
+<script>
+  let globalIndex8 = 0;
+  const slideDataList8 = [
+    {
+      desc: "Large or small, condo or mansion, we can find it and get at the price that's right. Fixer-uppers? Luxury? We can help with all of it! We live, work, and play in this community. Happy to help you find where to put you hard-earned dollars.",
+      tagline: "Commercial & Residential"
+    },
+    {
+      desc: "If you have questions about affordability, credit, and loan options, trust us to connect you with the right people to get the answers you need in a timely fashion. We make sure you feel confident and educated every step of the way.",
+      tagline: "Rely on Expertise"
+    },
+    {
+      desc: "Nobody knows the market like we do. Enjoy having a pro at your service. Market analysis, upgrades lists, contractors on speed dial, & more!",
+      tagline: "Guide to Buyers"
+    }
+  ];
+
+  function moveSlide8(direction) {
+    const slides = document.querySelectorAll(".slide8");
+    if (slides.length === 0) return;
+
+    globalIndex8 = (globalIndex8 + direction + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === globalIndex8);
+    });
+
+    document.getElementById("currentNum8").textContent = globalIndex8 + 1;
+    document.getElementById("progressFill8").style.width = ((globalIndex8 + 1) / slides.length) * 100 + "%";
+    document.getElementById("locationDesc8").textContent = slideDataList8[globalIndex8].desc;
+    document.getElementById("locationTagline8").textContent = slideDataList8[globalIndex8].tagline;
+  }
+</script>
+
+<!-- SCREEN 9: CALL OR VISIT (CONTACT) -->
+<section class="screen-9" id="contact">
+  <div class="screen-9-inner">
+
+    <h2 class="screen-9-title">Call or Visit</h2>
+
+    <div class="screen-9-grid">
+
+      <!-- LEFT: SEND MESSAGE FORM -->
+      <div class="screen-9-form-col">
+        <h3 class="screen-9-subtitle">Send Message</h3>
+
+        <form class="screen-9-form" id="contactForm">
+          <div class="field-group">
+            <label for="contactName">Name</label>
+            <input type="text" id="contactName" name="name" required />
+          </div>
+
+          <div class="field-group">
+            <label for="contactEmail">Email*</label>
+            <input type="email" id="contactEmail" name="email" required />
+          </div>
+
+          <div class="field-group">
+            <label for="contactMessage">Message</label>
+            <textarea id="contactMessage" name="message" rows="4" required></textarea>
+          </div>
+
+          <button type="submit" class="send-btn">SEND</button>
+        </form>
+
+        <p class="recaptcha-note">
+          This site is protected by reCAPTCHA and the Google
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and
+          <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.
+        </p>
+      </div>
+
+      <!-- RIGHT: CONTACT INFO -->
+      <div class="screen-9-info-col">
+        <h3 class="screen-9-subtitle">Marci Metzger - THE RIDGE REALTY GROUP</h3>
+        <p class="info-line">3190 HW-160, Suite F, Pahrump, Nevada 89048, United States</p>
+        <p class="info-line"><a href="tel:2069196886">(206) 919-6886</a></p>
+
+        <h3 class="screen-9-subtitle office-hours-title">Office Hours</h3>
+        <p class="info-line hours-toggle" id="hoursToggle">
+          Open today&nbsp; 8:00 am – 7:00 pm <span class="chevron">⌄</span>
+        </p>
+
+        <div class="hours-details" id="hoursDetails">
+          <p class="info-line"><strong>Open daily</strong> &nbsp;&nbsp; 8:00 am - 7:00 pm</p>
+          <p class="info-line">Appointments outside office hours available upon request. Just call!</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+   <!-- Clickable Vertical Scroll Indicator with Animated Line -->
+<div onclick="const s = this.closest('section'); let n = s.nextElementSibling; while(n && n.tagName !== 'SECTION') { n = n.nextElementSibling; } if(n) n.scrollIntoView({ behavior: 'smooth' });" class="scroll-indicator-vertical" style="position: absolute; bottom: 10px; left: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 9999;">
+  <span style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 3px; font-size: 0.75rem; color: #2C3947;">SCROLL</span>
+  <div class="animated-scroll-line" style="color: #2C3947;"></div>
+</div>
+</section>
+
+<script>
+  // Toggle for the office hours dropdown
+  const hoursToggle = document.getElementById('hoursToggle');
+  const hoursDetails = document.getElementById('hoursDetails');
+  if (hoursToggle && hoursDetails) {
+    hoursToggle.addEventListener('click', () => {
+      hoursDetails.classList.toggle('open');
+      hoursToggle.classList.toggle('open');
+    });
+  }
+
+  // Basic form handler (hook this up to your email service / Formspree / etc.)
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Thank you! Your message has been sent.');
+    this.reset();
+  });
+  </div>
+</script>
+
+<!-- SCREEN 10: TOP HEADER & MAP SECTION -->
+<section class="screen-10" id="page10">
+  <!-- Top 1/4 White Header with Logos and Black Text -->
+  <div class="screen-10-top">
+    <h3>Marci Metzger - The Ridge Realty Group</h3>
+    <div class="screen-10-logos">
+  <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+  <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+  <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+  <a href="#" aria-label="Yelp"><i class="fa-brands fa-yelp"></i></a>
+</div>
+  </div>
+
+<!-- SCREEN 10: TOP HEADER & MAP SECTION -->
+<section class="screen-10" id="page10">
+  <!-- Top 1/4 White Header with Logos and Black Text -->
+  <div class="screen-10-top">
+    <h3>Copyright © 2026 Marci METZGER - All Rights Reserved</h3>
+  </div>
+
+  <!-- Remaining 3/4 Interactive Google Map Section with a Container Wrapper -->
+  <div class="screen-10-map">
+    <div class="map-container-box">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d8026782.170538204!2d119.32612225312731!3d20.132692055959026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1788905374162!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </div>
+</section>
